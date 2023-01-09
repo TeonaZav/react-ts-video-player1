@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReplyAll } from "@fortawesome/free-solid-svg-icons";
+
 interface IVideoProps {
   videoRef?: React.ForwardedRef<HTMLVideoElement>;
   handlePlay: () => void;
@@ -28,7 +29,7 @@ const Video = ({
       <div>
         <video
           ref={videoRef}
-          poster={process.env.PUBLIC_URL + "/poster.jpg"}
+          poster={process.env.PUBLIC_URL + "/images/transparent.png"}
           playsInline
           onClick={!playerState.ended ? handlePlay : handleReplay}
           onTimeUpdate={handleOnTimeUpdate}
@@ -52,10 +53,11 @@ const Video = ({
 const Wrapper = styled.div`
   video {
     width: 100vw;
-    min-height: auto;
+    height: auto;
     object-fit: fill;
     border-radius: 0;
-    background: transparent url("./poster.jpg") no-repeat 0 0;
+    background: transparent url(${require("../assets/images/poster1.jpg")})
+      no-repeat 0 0;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

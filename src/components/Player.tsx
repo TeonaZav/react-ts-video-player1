@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import MyVideo420 from "../videoFiles/420.mp4";
-import MyVideo720 from "../videoFiles/720.mp4";
+import MyVideo420 from "../assets/videoFiles/420.mp4";
+import MyVideo720 from "../assets/videoFiles/720.mp4";
 import usePlayer from "../hooks/usePlayer";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -131,12 +131,14 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     .show-controls {
       width: 100%;
       height: 30%;
       z-index: 2;
       position: absolute;
       bottom: 0;
+
       cursor: default;
       .controls-container {
         position: absolute;
@@ -145,6 +147,7 @@ const Wrapper = styled.div`
         height: 8rem;
         background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
         box-sizing: border-box;
+        border-radius: 1rem;
         z-index: 5;
         display: flex;
         justify-content: center;

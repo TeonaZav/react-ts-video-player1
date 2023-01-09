@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
@@ -8,13 +8,6 @@ interface IVolumeProps {
   changeVolume: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 const Volume = ({ playerState, toggleMute, changeVolume }: IVolumeProps) => {
-  useEffect(() => {
-    const el = document.querySelector(".volume-bar") as HTMLInputElement;
-    el.style.setProperty("--min", el.min);
-    el.style.setProperty("--max", el.max);
-    el.style.setProperty("--value", "0");
-  }, []);
-
   return (
     <Wrapper>
       <div className="container volume-ct ">

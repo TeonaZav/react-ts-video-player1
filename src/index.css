@@ -52,7 +52,7 @@ code {
 }
 
 .container {
-  opacity: 0;
+  opacity: 1;
 }
 
 input[type="range"] {
