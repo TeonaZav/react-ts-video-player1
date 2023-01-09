@@ -64,7 +64,7 @@ const Wrapper = styled.div`
       right: 1.6%;
     }
   }
-  @media (min-width: 48em) {
+  @media (min-width: 90em) {
     .progress-range-ct {
       .progress-range {
         height: 0.6rem;

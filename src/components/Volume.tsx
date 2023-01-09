@@ -98,7 +98,7 @@ const Wrapper = styled.div`
     -webkit-appearance: none;
     visibility: hidden;
   }
-  @media (min-width: 48em) {
+  @media (min-width: 90em) {
     .volume-ct {
       top: 45%;
       right: 5%;

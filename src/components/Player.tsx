@@ -93,7 +93,7 @@ const Player1 = () => {
                   <option value="2">2x</option>
                 </select>
               </div>
-              <div className="fullscreen" onClick={toggleFullscreen}>
+              <div className="fullscreen-icon" onClick={toggleFullscreen}>
                 <FontAwesomeIcon
                   icon={!playerState.fullscreen ? faExpand : faCompress}
                 />
@@ -115,8 +115,8 @@ const Wrapper = styled.div`
     cursor: pointer;
     background-color: #070305;
     display: flex;
+    justify-content: center;
     align-items: center;
-
     .show-controls {
       width: 100%;
       height: 30%;
@@ -174,7 +174,7 @@ const Wrapper = styled.div`
             }
           }
           /* Fullscreen */
-          .fullscreen {
+          .fullscreen-icon {
             color: var(--font-color);
             font-size: 3.2rem;
             cursor: pointer;
@@ -219,14 +219,10 @@ const Wrapper = styled.div`
       }
     }
   }
-  .player:hover .container {
-    opacity: 1;
-    transition: all 0.2s ease-out;
-  }
 
   /* more than 768PX */
   @media (min-width: 48em) {
-    .player {
+    /* .player {
       object-fit: cover;
       width: 50vw;
       .show-controls {
@@ -261,23 +257,19 @@ const Wrapper = styled.div`
     .play-controls.play-controls-p {
       width: 5rem;
       height: 5rem;
-    }
+    } */
   }
   /* more than 768PX */
   @media (min-width: 90em) {
     .player {
       width: 50vw;
       height: auto;
-      max-width: 100vw;
-      max-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+
       .show-controls {
         width: 100%;
         .controls-container {
           width: 100%;
-          height: 14rem;
+          height: 10rem;
           .control-group {
             gap: 2.4rem;
             .controls-left,
@@ -294,7 +286,7 @@ const Wrapper = styled.div`
                 }
               }
             }
-            .fullscreen {
+            .fullscreen-icon {
               bottom: 27%;
             }
           }

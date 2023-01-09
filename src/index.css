@@ -49,7 +49,9 @@ code {
 .container {
   opacity: 0;
 }
-
+.player:hover .container:not(:hover) {
+  opacity: 1;
+}
 input[type="range"] {
   height: 0.8rem;
   -webkit-appearance: none;
