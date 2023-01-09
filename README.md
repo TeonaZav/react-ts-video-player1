@@ -3,7 +3,7 @@
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+  - [Screenshot](#Screenshot (Fullscreen))
 - [My process](#my-process)
   - [Built with](#built-with)
 - [Installing](#Installing)
