@@ -33,6 +33,8 @@ const Player1 = () => {
     handleBackwardStep,
     toggleFullscreen,
     handleVideoResolution,
+    handleEnd,
+    handleReplay,
   } = usePlayer(videoElement);
   return (
     <Wrapper>
@@ -45,6 +47,8 @@ const Player1 = () => {
           playerState={playerState}
           MyVideo420={MyVideo420}
           MyVideo720={MyVideo720}
+          handleEnd={handleEnd}
+          handleReplay={handleReplay}
         />
         <Volume
           toggleMute={toggleMute}

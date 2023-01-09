@@ -12,18 +12,36 @@ const useVideoPlayer = (videoEl: any) => {
     lastVolume: 0.6,
     resolution: "720",
     lastSpeed: 1,
+    ended: false,
   });
-
+  /*================
+  Handle Play 
+  ================== */
   const togglePlay = () => {
     setPlayerState({
       ...playerState,
       isPlaying: !playerState.isPlaying,
     });
   };
+
+  const handleReplay = () => {
+    setPlayerState({
+      ...playerState,
+      isPlaying: true,
+      ended: false,
+    });
+    videoEl.current.currentTime = 0;
+  };
   useEffect(() => {
     playerState.isPlaying ? videoEl.current.play() : videoEl.current.pause();
   }, [playerState.isPlaying, videoEl]);
-
+  const handleEnd = () => {
+    setPlayerState({
+      ...playerState,
+      ended: true,
+      isPlaying: false,
+    });
+  };
   //======= Handle Time Update ===== //
   const handleOnTimeUpdate = () => {
     const progress =
@@ -246,6 +264,8 @@ const useVideoPlayer = (videoEl: any) => {
     handleBackwardStep,
     toggleFullscreen,
     handleVideoResolution,
+    handleEnd,
+    handleReplay,
   };
 };
 

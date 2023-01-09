@@ -1,9 +1,13 @@
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faReplyAll } from "@fortawesome/free-solid-svg-icons";
 interface IVideoProps {
   videoRef?: React.ForwardedRef<HTMLVideoElement>;
   handlePlay: () => void;
   calculateDurtion: () => void;
   handleOnTimeUpdate: () => void;
+  handleEnd: () => void;
+  handleReplay: () => void;
   playerState: any;
   MyVideo420: string;
   MyVideo720: string;
@@ -16,22 +20,32 @@ const Video = ({
   playerState,
   MyVideo420,
   MyVideo720,
+  handleEnd,
+  handleReplay,
 }: IVideoProps) => {
   return (
     <Wrapper>
-      <video
-        ref={videoRef}
-        poster={process.env.PUBLIC_URL + "/poster.jpg"}
-        playsInline
-        onClick={handlePlay}
-        onTimeUpdate={handleOnTimeUpdate}
-        onCanPlay={calculateDurtion}
-        muted
-      >
-        <source
-          src={playerState.resolution === "420" ? MyVideo420 : MyVideo720}
+      <div>
+        <video
+          ref={videoRef}
+          poster={process.env.PUBLIC_URL + "/poster.jpg"}
+          playsInline
+          onClick={!playerState.ended ? handlePlay : handleReplay}
+          onTimeUpdate={handleOnTimeUpdate}
+          onCanPlay={calculateDurtion}
+          onEnded={handleEnd}
+          muted
+        >
+          <source
+            src={playerState.resolution === "420" ? MyVideo420 : MyVideo720}
+          />
+        </video>
+        <FontAwesomeIcon
+          icon={playerState.ended && !playerState.isPlaying && faReplyAll}
+          className="replay-icon"
+          onClick={!playerState.ended ? handlePlay : handleReplay}
         />
-      </video>
+      </div>
     </Wrapper>
   );
 };
@@ -46,6 +60,7 @@ const Wrapper = styled.div`
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    position: relative;
   }
   video[poster] {
     margin: 0 auto;
@@ -58,6 +73,14 @@ const Wrapper = styled.div`
   video:hover + .container {
     opacity: 1;
     transition: all 0.2s ease-out;
+  }
+  .replay-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 6rem;
+    color: #ffffff49;
+    transform: translate(-50%, -50%);
   }
   @media (min-width: 48em) {
     video {
@@ -80,6 +103,9 @@ const Wrapper = styled.div`
       border-radius: 5px;
       height: auto;
       object-fit: cover;
+    }
+    .replay-icon {
+      font-size: 10rem;
     }
   }
 `;

@@ -85,7 +85,7 @@ const Wrapper = styled.div`
       }
       .time-elapsed,
       .time-duration {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
       }
       .time-elapsed {
         left: 4%;
