@@ -17,17 +17,13 @@ The challenge was to build out Custom Video Player with React JS.
 
 ---
 
-## Screenshot
+## Screenshot (Fullscreen)
 
-- 375px, 768px:
+- 375px, 1440px:
 
 |                                          |                                          |
 | ---------------------------------------- | ---------------------------------------- |
-| <img src="./public/375.JPG" width="200"> | <img src="./public/768.JPG" width="200"> |
-
-- 1440px:
-
-## <img src="./public/1440.JPG" width="600">
+| <img src="./public/375.JPG" width="200"> | <img src="./public/1440.JPG" width="600"> |
 
 
 ## My process
@@ -52,5 +48,4 @@ npm start
 ##
 
 ## Links
-
-- Solution URL: [](https://teonazav.github.io/react-ts-video-player1/)
+- Solution URL: https://teonazav.github.io/react-ts-video-player1/
