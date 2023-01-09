@@ -70,10 +70,6 @@ const Wrapper = styled.div`
     object-fit: cover;
     justify-self: center;
   }
-  video:hover + .container {
-    opacity: 1;
-    transition: all 0.2s ease-out;
-  }
   .replay-icon {
     position: absolute;
     top: 50%;

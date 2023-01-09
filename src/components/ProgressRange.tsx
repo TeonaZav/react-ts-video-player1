@@ -64,6 +64,23 @@ const Wrapper = styled.div`
       right: 1.6%;
     }
   }
+  @media (min-width: 48em) {
+    .progress-range-ct {
+      .progress-range {
+        &:hover {
+        }
+      }
+      .time-elapsed,
+      .time-duration {
+      }
+      .time-elapsed {
+        left: 2.4%;
+      }
+      .time-duration {
+        right: 2.4%;
+      }
+    }
+  }
   @media (min-width: 90em) {
     .progress-range-ct {
       .progress-range {

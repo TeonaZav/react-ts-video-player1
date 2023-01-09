@@ -29,7 +29,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgba(3, 5, 7, 0.925);
+  background: linear-gradient(
+    to right,
+    rgb(8, 17, 20),
+    rgb(22, 38, 44),
+    rgb(33, 62, 75)
+  );
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,9 +54,7 @@ code {
 .container {
   opacity: 0;
 }
-.player:hover .container:not(:hover) {
-  opacity: 1;
-}
+
 input[type="range"] {
   height: 0.8rem;
   -webkit-appearance: none;

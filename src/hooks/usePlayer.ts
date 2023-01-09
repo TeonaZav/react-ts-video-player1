@@ -4,16 +4,23 @@ const useVideoPlayer = (videoEl: any) => {
     isPlaying: false,
     progress: 0,
     speed: 1,
-    isMuted: true,
+    isMuted: false,
     duration: "00:00",
     displayTime: "00:00",
-    volume: 0,
+    volume: 0.2,
     fullscreen: false,
-    lastVolume: 0.6,
+    lastVolume: 0.06,
     resolution: "720",
     lastSpeed: 1,
     ended: false,
   });
+  useEffect(() => {
+    const el = document.querySelector(".volume-bar") as HTMLInputElement;
+    el.style.setProperty("--min", el.min === "" ? "0" : el.min);
+    el.style.setProperty("--max", el.max === "" ? "100" : el.max);
+    el.style.setProperty("--value", `${playerState.volume}`);
+    videoEl.current.volume = playerState.volume;
+  }, []);
   /*================
   Handle Play 
   ================== */
@@ -157,6 +164,12 @@ const useVideoPlayer = (videoEl: any) => {
       videoEl.current.muted = false;
     }
   };
+  const toggleVolumeModal = () => {
+    const el = document.querySelector(".container") as HTMLElement;
+    el.style.opacity === "0"
+      ? (el.style.opacity = "1")
+      : (el.style.opacity = "0");
+  };
   /*================
   Mute/Unmute Video
   ================== */
@@ -195,6 +208,7 @@ const useVideoPlayer = (videoEl: any) => {
       ? (videoEl.current.muted = true)
       : (videoEl.current.muted = false);
   }, [playerState.isMuted, videoEl]);
+
   /*================
  Rewind Video Forward/Backward
   ================== */
@@ -266,6 +280,7 @@ const useVideoPlayer = (videoEl: any) => {
     handleVideoResolution,
     handleEnd,
     handleReplay,
+    toggleVolumeModal,
   };
 };
 

@@ -50,7 +50,7 @@ const Wrapper = styled.div`
     width: 20rem;
     transform: translateY(-50%);
     transform: translateX(50%);
-    transition: opacity 0.05s ease-out 0.5s;
+    transition: opacity 0.05s ease-out 0.05s;
     z-index: 999;
     .volume {
       background: rgba(0, 0, 0, 0.35);

@@ -11,6 +11,8 @@ import {
   faPen,
   faExpand,
   faCompress,
+  faVolumeUp,
+  faVolumeMute,
 } from "@fortawesome/free-solid-svg-icons";
 import Video from "./Video";
 import ProgressRange from "./ProgressRange";
@@ -35,6 +37,7 @@ const Player1 = () => {
     handleVideoResolution,
     handleEnd,
     handleReplay,
+    toggleVolumeModal,
   } = usePlayer(videoElement);
   return (
     <Wrapper>
@@ -63,6 +66,12 @@ const Player1 = () => {
             />
             <div className="control-group">
               <div className="controls-left">
+                <div className="volume-icon" onClick={toggleVolumeModal}>
+                  <FontAwesomeIcon
+                    icon={!playerState.isMuted ? faVolumeUp : faVolumeMute}
+                    className="control-icon volume-icon"
+                  />
+                </div>
                 <div className="play-controls">
                   <FontAwesomeIcon icon={faPen} className="control-icon" />
                 </div>
@@ -118,6 +127,7 @@ const Wrapper = styled.div`
     position: relative;
     cursor: pointer;
     background-color: #070305;
+    border-radius: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,6 +164,19 @@ const Wrapper = styled.div`
             justify-content: center;
             gap: 1rem;
           }
+          .controls-left {
+            .volume-icon {
+              position: absolute;
+              display: inline-block;
+              cursor: pointer;
+              color: var(--font-color);
+              left: 5%;
+              top: 50%;
+              transform: translateY(-50%);
+              font-size: 2rem;
+            }
+          }
+
           .controls-right {
             position: relative;
             .video-velocity {
@@ -226,32 +249,18 @@ const Wrapper = styled.div`
 
   /* more than 768PX */
   @media (min-width: 48em) {
-    /* .player {
+    .player {
       object-fit: cover;
-      width: 50vw;
+      width: 80vw;
       .show-controls {
-        width: 100%;
         .controls-container {
-          width: 100%;
-          height: 14rem;
           .control-group {
-            gap: 2.4rem;
             .controls-left,
             .controls-right {
-              gap: 2.4rem;
               .video-velocity {
-                font-size: 2rem;
-                bottom: 50%;
-                transform: translateY(50%);
-                width: 10rem;
-                right: -10rem;
                 & option {
-                  font-size: 1.6rem;
                 }
               }
-            }
-            .fullscreen {
-              bottom: 27%;
             }
           }
         }
@@ -259,9 +268,7 @@ const Wrapper = styled.div`
     }
     .play-controls.play-controls-p,
     .play-controls.play-controls-p {
-      width: 5rem;
-      height: 5rem;
-    } */
+    }
   }
   /* more than 768PX */
   @media (min-width: 90em) {
